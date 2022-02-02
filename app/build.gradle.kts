@@ -51,9 +51,14 @@ android {
         implementation(Libs.constraintLayout)
         implementation(Libs.splashScreen)
 
+        //fragment
+        implementation(Libs.fragmentVersion)
+
         //Test
         testImplementation(Libs.junit)
         androidTestImplementation(Libs.extJunit)
         androidTestImplementation(Libs.espresso)
+
+
     }
 }

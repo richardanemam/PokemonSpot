@@ -18,4 +18,7 @@ object Libs {
 
     //Kotlin
     const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+
+    //Libs
+    const val fragmentVersion = "androidx.fragment:fragment-ktx:${Versions.fragmentVersion}"
 }
