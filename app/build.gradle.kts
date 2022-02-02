@@ -38,6 +38,10 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     dependencies {
 
         //UI
@@ -45,6 +49,7 @@ android {
         implementation(Libs.appcompat)
         implementation(Libs.material)
         implementation(Libs.constraintLayout)
+        implementation(Libs.splashScreen)
 
         //Test
         testImplementation(Libs.junit)
