@@ -7,14 +7,17 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class PokemonProfileRepositoryImpl(
-    val service: PokemonProfileService,
-    val dispatcher: CoroutineDispatcher = Dispatchers.IO
+internal class PokemonProfileRepositoryImpl(
+    private val service: PokemonProfileService,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ): PokemonProfileRepository {
 
     override suspend fun fetchPokemons(pokemon: String) {
         withContext(dispatcher) {
             val pokemonProfile = service.getPokemon(pokemon = pokemon)
+            if(pokemonProfile.isSuccessful) {
+
+            }
         }
     }
 

@@ -14,6 +14,7 @@ object Versions {
     const val koin = "3.1.5"
     const val retrofit = "2.9.0"
     const val coroutines = "1.4.3"
+    const val room = "2.4.1"
 
     //test
     const val junit = "4.13.2"

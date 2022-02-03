@@ -61,6 +61,9 @@ dependencies {
     //coroutines
     implementation Libs.coroutines
 
+    //room
+    implementation Libs.room
+
     //modules
     implementation project(Modules.common)
 }
