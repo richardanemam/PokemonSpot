@@ -52,6 +52,9 @@ dependencies {
     //gson
     implementation Libs.gson
 
+    //koin
+    implementation Libs.koin
+
     //modules
     implementation project(Modules.common)
 }

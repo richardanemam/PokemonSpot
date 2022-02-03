@@ -22,4 +22,5 @@ object Libs {
     //Libs
     const val fragmentVersion = "androidx.fragment:fragment-ktx:${Versions.fragmentVersion}"
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val koin = "io.insert-koin:koin-android:${Versions.koin}"
 }

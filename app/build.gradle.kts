@@ -54,6 +54,9 @@ android {
         //fragment
         implementation(Libs.fragmentVersion)
 
+        //koin
+        implementation(Libs.koin)
+
         //Test
         testImplementation(Libs.junit)
         androidTestImplementation(Libs.extJunit)

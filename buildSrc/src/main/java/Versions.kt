@@ -11,6 +11,7 @@ object Versions {
     const val splashScreen = "1.0.0-alpha01"
     const val fragmentVersion = "1.4.1"
     const val gson = "2.8.9"
+    const val koin = "3.1.5"
     //test
     const val junit = "4.13.2"
     const val extJunit = "1.1.3"
