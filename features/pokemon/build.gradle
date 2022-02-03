@@ -55,6 +55,12 @@ dependencies {
     //koin
     implementation Libs.koin
 
+    //Retrofit
+    implementation Libs.retrofit
+
+    //coroutines
+    implementation Libs.coroutines
+
     //modules
     implementation project(Modules.common)
 }

@@ -12,6 +12,9 @@ object Versions {
     const val fragmentVersion = "1.4.1"
     const val gson = "2.8.9"
     const val koin = "3.1.5"
+    const val retrofit = "2.9.0"
+    const val coroutines = "1.4.3"
+
     //test
     const val junit = "4.13.2"
     const val extJunit = "1.1.3"
