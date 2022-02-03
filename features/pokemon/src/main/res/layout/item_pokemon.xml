@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/item_pokemon_8dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_pokemon_profile"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_pokemon_card_dimen"
+        android:elevation="@dimen/item_pokemon_8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/item_pokemon_8dp">
+
+            <ImageView
+                android:id="@+id/iv_pokemon"
+                android:layout_width="@dimen/item_pokemon_image"
+                android:layout_height="@dimen/item_pokemon_image"
+                android:contentDescription="TODO"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tv_pokemon_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_pokemon_16dp"
+                android:gravity="center"
+                android:textColor="@color/green_8fb881"
+                android:textSize="@dimen/item_pokemon_32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_pokemon"
+                tools:text="@tools:sample/cities" />
+
+            <Button
+                android:id="@+id/btn_view_profile_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/item_pokemon_32dp"
+                android:text="@string/item_prokemon_profile_view_details"
+                android:textAllCaps="false"
+                android:background="@color/green_8fb881"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/tv_pokemon_name"
+                app:layout_constraintEnd_toEndOf="@id/tv_pokemon_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_pokemon_name"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

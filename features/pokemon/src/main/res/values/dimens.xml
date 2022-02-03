@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_pokemon_card_dimen">416dp</dimen>
+    <dimen name="item_pokemon_image">248dp</dimen>
+    <dimen name="item_pokemon_8dp">8dp</dimen>
+    <dimen name="item_pokemon_16dp">16dp</dimen>
+    <dimen name="item_pokemon_32dp">32dp</dimen>
+
+    <dimen name="item_pokemon_32sp">32sp</dimen>
+</resources>

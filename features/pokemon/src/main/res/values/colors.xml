@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- DEFAULT -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- GREEN -->
+    <color name="green_6b8761">#6b8761</color>
+    <color name="green_8fb881">#8fb881</color>
+</resources>
