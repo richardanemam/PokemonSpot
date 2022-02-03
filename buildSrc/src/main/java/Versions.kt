@@ -10,7 +10,7 @@ object Versions {
     const val material = "1.5.0"
     const val splashScreen = "1.0.0-alpha01"
     const val fragmentVersion = "1.4.1"
-
+    const val gson = "2.8.9"
     //test
     const val junit = "4.13.2"
     const val extJunit = "1.1.3"

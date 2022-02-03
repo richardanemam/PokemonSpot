@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -42,9 +43,14 @@ dependencies {
     implementation Libs.coreKtx
     implementation Libs.appcompat
     implementation Libs.material
+
+    //Test
     testImplementation Libs.junit
     androidTestImplementation Libs.extJunit
     androidTestImplementation Libs.espresso
+
+    //gson
+    implementation Libs.gson
 
     //modules
     implementation project(Modules.common)
