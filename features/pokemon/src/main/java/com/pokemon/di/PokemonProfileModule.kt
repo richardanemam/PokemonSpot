@@ -6,7 +6,7 @@ import com.pokemon.data.repository.PokemonProfileRepositoryImpl
 import com.pokemon.domain.repository.PokemonProfileCachePolicyRepository
 import com.pokemon.domain.repository.PokemonProfileRepository
 import com.pokemon.domain.usecase.PokemonProfileUseCase
-import com.pokemon.presentation.fragments.profilefragment.viewmodel.PokemonProfileViewModel
+import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module

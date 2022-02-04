@@ -26,6 +26,7 @@
                 android:layout_width="@dimen/item_pokemon_image"
                 android:layout_height="@dimen/item_pokemon_image"
                 android:contentDescription="TODO"
+                android:layout_marginTop="@dimen/item_pokemon_16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

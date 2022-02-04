@@ -1,4 +1,4 @@
-package com.pokemon.presentation.fragments.profilefragment.viewmodel
+package com.pokemon.presentation.activity.profileactivity.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.common.core.arch.viewmodel.BaseViewModel

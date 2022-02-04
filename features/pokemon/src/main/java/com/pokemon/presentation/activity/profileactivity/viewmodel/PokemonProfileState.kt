@@ -1,4 +1,4 @@
-package com.pokemon.presentation.fragments.profilefragment.viewmodel
+package com.pokemon.presentation.activity.profileactivity.viewmodel
 
 import com.common.core.arch.UIState
 import com.pokemon.domain.model.PokemonProfile
