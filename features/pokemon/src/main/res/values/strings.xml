@@ -9,6 +9,7 @@
     <string name="message_pokemon_not_found">Pokemon não encontrado, tente novamente</string>
 
     <!-- POKEMON PROFILE ACTIVITY -->
+    <string name="pokemon_toolbar_title">encontrar pokemon</string>
     <string name="pokemon_search_mewtwo">pesquisar mewtwo</string>
     <string name="pokemon_recent_searches">pesquisas recentes</string>
     <string name="pokemon_search_new_pokemons">Você não tem pesquisas recentes, busque novos pokemons agora mesmo!</string>

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.common.core.arch.UIView
+import com.pokemon.R
 import com.pokemon.databinding.ActivityPokemonProfileBinding
 import com.pokemon.domain.model.PokemonProfile
 import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileState
@@ -23,11 +24,25 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
         super.onPostCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setupSearchView()
         subscribeStateObserver()
+        setupViews()
+
     }
 
     private fun subscribeStateObserver() = viewModel.state.observe(this, { render(it) })
+
+    private fun setupViews() {
+        setupToolbar()
+        setupSearchView()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.toolbarPokemonProfile)
+        supportActionBar?.apply {
+            setTitle(R.string.pokemon_toolbar_title)
+            setDisplayHomeAsUpEnabled(true)
+        }
+    }
 
     private fun setupSearchView() {
         binding.svPokemonProfile.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
