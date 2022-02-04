@@ -33,13 +33,39 @@ internal class PokemonProfileViewModel(
         }
     }
 
+    private suspend fun setPokemonAvailabilityState(pokemon: String) {
+        val pokes = useCase.getAllPokemons()
+        when {
+            pokemon.isPokemonCached(pokes) -> {
+                setPokemonProfileState(pokes)
+                setPokemonListState(false)
+                setMessageState(null)
+                setFirstSearchState(false)
+            }
+            pokes.isNullOrEmpty() -> {
+                setPokemonListState(true)
+                setMessageState(resourceProvider.getString(R.string.message_pokemon_not_found))
+                setFirstSearchState(true)
+            }
+            else -> {
+                setPokemonListState(false)
+                setMessageState(resourceProvider.getString(R.string.message_pokemon_not_found))
+                setFirstSearchState(false)
+            }
+        }
+    }
+
     fun navigateToDetails(pokemonDetails: PokemonProfile) {
         sendAction {
             PokemonProfileAction.NavigateToDetails(pokemonDetails)
         }
     }
 
-    private fun setMessageState(message: String) {
+    private fun setPokemonProfileState(pokemons: List<PokemonProfile>) {
+        setState { it.setPokemonProfileList(pokemons) }
+    }
+
+    private fun setMessageState(message: String?) {
         setState { it.setErrorMessage(message) }
     }
 
@@ -47,22 +73,8 @@ internal class PokemonProfileViewModel(
         setState { it.setLoading(isLoading) }
     }
 
-    private suspend fun setPokemonAvailabilityState(pokemon: String) {
-        val pokes = useCase.getAllPokemons()
-        when {
-            pokemon.isPokemonCached(pokes) -> {
-                setState { it.setPokemonProfileList(pokes) }
-                setPokemonListState(false)
-            }
-            pokes.isNullOrEmpty() -> {
-                setPokemonListState(true)
-                setMessageState(resourceProvider.getString(R.string.message_pokemon_not_found))
-            }
-            else -> {
-                setPokemonListState(false)
-                setMessageState(resourceProvider.getString(R.string.message_pokemon_not_found))
-            }
-        }
+    private fun setFirstSearchState(isFirstSearch: Boolean) {
+        setState { it.setFirstSearch(isFirstSearch) }
     }
 
     private fun setPokemonListState(isEmpty: Boolean) {

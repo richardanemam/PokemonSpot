@@ -7,6 +7,7 @@ data class PokemonProfileState(
     val pokemonProfileList: List<PokemonProfile> = listOf(),
     val isLoading: Boolean = false,
     val isPokemonProfileListEmpty: Boolean = true,
+    val isFirstSearch: Boolean = true,
     val message: String? = null
 ) : UIState {
 
@@ -18,5 +19,7 @@ data class PokemonProfileState(
     fun setPokemonProfileListState(isPokemonProfileListEmpty: Boolean) =
         this.copy(isPokemonProfileListEmpty = isPokemonProfileListEmpty)
 
-    fun setErrorMessage(message: String) = this.copy(message = message)
+    fun setFirstSearch(isFirstSearch: Boolean) = this.copy(isFirstSearch = isFirstSearch)
+
+    fun setErrorMessage(message: String?) = this.copy(message = message)
 }

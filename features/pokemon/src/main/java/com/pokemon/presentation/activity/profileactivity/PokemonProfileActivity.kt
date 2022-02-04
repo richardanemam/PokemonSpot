@@ -2,12 +2,19 @@ package com.pokemon.presentation.activity.profileactivity
 
 import android.os.Bundle
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.common.core.arch.UIView
 import com.pokemon.databinding.ActivityPokemonProfileBinding
+import com.pokemon.domain.model.PokemonProfile
+import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileState
 import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileViewModel
+import com.pokemon.presentation.adapter.PokemonProfileAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PokemonProfileActivity: AppCompatActivity() {
+class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> {
 
     private val binding by lazy { ActivityPokemonProfileBinding.inflate(layoutInflater) }
     private val viewModel by viewModel<PokemonProfileViewModel>()
@@ -16,17 +23,16 @@ class PokemonProfileActivity: AppCompatActivity() {
         super.onPostCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setUpViews()
+        setupSearchView()
+        subscribeStateObserver()
     }
 
-    private fun setUpViews() {
-        setUpSearchView()
-    }
+    private fun subscribeStateObserver() = viewModel.state.observe(this, { render(it) })
 
-    private fun setUpSearchView() {
-        binding.svPokemonProfile.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+    private fun setupSearchView() {
+        binding.svPokemonProfile.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {pokemon -> viewModel.fetchPokemon(pokemon)}
+                query?.let { pokemon -> viewModel.fetchPokemon(pokemon) }
                 return false
             }
 
@@ -36,5 +42,29 @@ class PokemonProfileActivity: AppCompatActivity() {
             }
 
         })
+    }
+
+    override fun render(state: PokemonProfileState) {
+        with(state) {
+            binding.pbPokemonProfile.isVisible = isLoading
+            binding.tvSearchScreenSearchForNewUsers.isVisible = isFirstSearch
+            setupRecyclerView(state.pokemonProfileList)
+            message?.let { renderMessage(it) }
+        }
+    }
+
+    private fun setupRecyclerView(pokemons: List<PokemonProfile>) {
+        binding.rvPokemonProfile.adapter = PokemonProfileAdapter(pokemons) {
+            //Start new activity
+            Toast.makeText(this, "Funcionando...", Toast.LENGTH_LONG).show()
+        }
+
+        LinearLayoutManager(this).apply {
+            binding.rvPokemonProfile.layoutManager = this
+        }
+    }
+
+    private fun renderMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }
