@@ -27,6 +27,7 @@ object Libs {
     const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
     const val viewModelLifecycle =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelLifecycle}"
 }

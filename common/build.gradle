@@ -43,4 +43,5 @@ dependencies {
     androidTestImplementation Libs.espresso
 
     implementation Libs.koin
+    implementation Libs.picasso
 }
