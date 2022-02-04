@@ -3,6 +3,7 @@ package com.pokemon.domain.repository
 import com.pokemon.domain.model.PokemonProfile
 
 interface PokemonProfileCachePolicyRepository {
-    fun put(pokemonProfile: PokemonProfile)
-    fun getAllPokemonsCached(): List<PokemonProfile>
+    suspend fun put(pokemonProfile: PokemonProfile)
+    suspend fun delete()
+    suspend fun getAllPokemonsCached(): List<PokemonProfile>
 }

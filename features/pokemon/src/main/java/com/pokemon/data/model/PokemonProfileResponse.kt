@@ -16,7 +16,7 @@ data class PokemonProfileResponse(
     @SerializedName("is_default") val isDefault: Boolean?,
     @SerializedName("location_area_encounters") val locationAreaEncounters: String?,
     @SerializedName("moves") val moves: List<MovesResponse>?,
-    @SerializedName("name") val name: String?,
+    @SerializedName("name") val name: String,
     @SerializedName("order") val order: Int?,
     @SerializedName("species") val species: List<NameUrlResponse>?,
     @SerializedName("sprites") val sprites: SpritesResponse?,

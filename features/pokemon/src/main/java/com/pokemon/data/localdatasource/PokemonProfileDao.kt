@@ -7,7 +7,7 @@ import com.pokemon.domain.model.PokemonProfile
 interface PokemonProfileDao {
 
     @Query("SELECT * FROM pokemon")
-    fun getAllPokemons(): List<PokemonProfile>
+    fun getAllPokemons(): List<PokemonProfileEntity>
 
     @Query("SELECT count(*) FROM pokemon")
     suspend fun getNumberOfRecords(): Int

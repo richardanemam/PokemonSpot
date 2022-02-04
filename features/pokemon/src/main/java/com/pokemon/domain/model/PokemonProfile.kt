@@ -1,7 +1,7 @@
 package com.pokemon.domain.model
 
 data class PokemonProfile(
-    val name: String?,
+    val name: String,
     val type: String?,
     val imageUrl: String?,
     val weight: Int?,
