@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
 }
@@ -8,13 +8,13 @@ android {
     compileSdk AppConfig.compileSdk
 
     defaultConfig {
+        applicationId AppConfig.applicationId
         minSdk AppConfig.minSdk
         targetSdk AppConfig.targetSdk
         versionCode AppConfig.versionCode
         versionName AppConfig.versionName
 
         testInstrumentationRunner AppConfig.testInstrumentationRunner
-        consumerProguardFiles AppConfig.consumerProguardFiles
     }
 
     buildTypes {
@@ -36,35 +36,28 @@ android {
     buildFeatures {
         viewBinding true
     }
-}
 
-dependencies {
+    dependencies {
 
-    implementation Libs.coreKtx
-    implementation Libs.appcompat
-    implementation Libs.material
+        //UI
+        implementation Libs.coreKtx
+        implementation Libs.appcompat
+        implementation Libs.material
+        implementation Libs.constraintLayout
+        implementation Libs.splashScreen
 
-    //Test
-    testImplementation Libs.junit
-    androidTestImplementation Libs.extJunit
-    androidTestImplementation Libs.espresso
+        //fragment
+        implementation Libs.fragmentVersion
 
-    //gson
-    implementation Libs.gson
+        //koin
+        implementation Libs.koin
 
-    //koin
-    implementation Libs.koin
+        //Test
+        testImplementation Libs.junit
+        androidTestImplementation Libs.extJunit
+        androidTestImplementation Libs.espresso
 
-    //Retrofit
-    implementation Libs.retrofit
-    implementation Libs.retrofitConverterGson
-
-    //coroutines
-    implementation Libs.coroutines
-
-    //room
-    implementation Libs.room
-
-    //modules
-    implementation project(Modules.common)
+        //modules
+        implementation project(Modules.pokemonFeature)
+    }
 }

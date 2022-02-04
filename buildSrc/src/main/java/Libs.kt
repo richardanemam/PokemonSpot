@@ -24,6 +24,7 @@ object Libs {
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val koin = "io.insert-koin:koin-android:${Versions.koin}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitConverterGson =  "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val room = "androidx.room:room-runtime:${Versions.room}"
 }
