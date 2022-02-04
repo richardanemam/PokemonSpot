@@ -5,6 +5,7 @@ import com.common.core.arch.viewmodel.BaseViewModel
 import com.common.core.resources.ResourceProvider
 import com.pokemon.R
 import com.pokemon.domain.extensions.isPokemonCached
+import com.pokemon.domain.model.PokemonProfile
 import com.pokemon.domain.usecase.PokemonProfileUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +30,12 @@ internal class PokemonProfileViewModel(
 
         }.invokeOnCompletion {
             setLoadingState(isLoading = false)
+        }
+    }
+
+    fun navigateToDetails(pokemonDetails: PokemonProfile) {
+        sendAction {
+            PokemonProfileAction.NavigateToDetails(pokemonDetails)
         }
     }
 
