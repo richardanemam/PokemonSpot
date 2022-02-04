@@ -4,15 +4,19 @@ import com.common.core.arch.UIState
 import com.pokemon.domain.model.PokemonProfile
 
 data class PokemonProfileState(
-    val pokemonProfileList: MutableList<PokemonProfile> = mutableListOf(),
+    val pokemonProfileList: List<PokemonProfile> = listOf(),
     val isLoading: Boolean = false,
-    val errorMessage: String? = null
-): UIState {
+    val isPokemonProfileListEmpty: Boolean = true,
+    val message: String? = null
+) : UIState {
 
-    fun setPokemonProfileList(pokemonProfileList: MutableList<PokemonProfile>) =
+    fun setPokemonProfileList(pokemonProfileList: List<PokemonProfile>) =
         this.copy(pokemonProfileList = pokemonProfileList)
 
     fun setLoading(isLoading: Boolean) = this.copy(isLoading = isLoading)
 
-    fun setErrorMessage(errorMessage: String) = this.copy(errorMessage = errorMessage)
+    fun setPokemonProfileListState(isPokemonProfileListEmpty: Boolean) =
+        this.copy(isPokemonProfileListEmpty = isPokemonProfileListEmpty)
+
+    fun setErrorMessage(message: String) = this.copy(message = message)
 }

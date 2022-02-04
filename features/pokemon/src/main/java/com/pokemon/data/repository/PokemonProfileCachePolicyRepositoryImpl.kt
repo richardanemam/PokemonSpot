@@ -1,6 +1,6 @@
 package com.pokemon.data.repository
 
-import com.pokemon.data.extensions.isBiggerThan
+import com.common.extensions.isBiggerThan
 import com.pokemon.data.extensions.toEntity
 import com.pokemon.data.extensions.toModel
 import com.pokemon.data.localdatasource.PokemonProfileDao

@@ -65,6 +65,9 @@ dependencies {
     //room
     implementation Libs.room
 
+    //ViewModelLifeCycle
+    implementation Libs.viewModelLifecycle
+
     //modules
     implementation project(Modules.common)
 }

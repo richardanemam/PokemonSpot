@@ -6,7 +6,9 @@ import com.pokemon.data.repository.PokemonProfileRepositoryImpl
 import com.pokemon.domain.repository.PokemonProfileCachePolicyRepository
 import com.pokemon.domain.repository.PokemonProfileRepository
 import com.pokemon.domain.usecase.PokemonProfileUseCase
+import com.pokemon.presentation.fragments.profilefragment.viewmodel.PokemonProfileViewModel
 import org.koin.android.ext.koin.androidApplication
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -33,5 +35,14 @@ val pokemonDataModule: Module = module {
 val pokemonDomainModule: Module = module {
     factory {
         PokemonProfileUseCase(repository = get())
+    }
+}
+
+val pokemonPresentationModule: Module = module {
+    viewModel {
+        PokemonProfileViewModel(
+            useCase = get(),
+            resourceProvider = get()
+        )
     }
 }

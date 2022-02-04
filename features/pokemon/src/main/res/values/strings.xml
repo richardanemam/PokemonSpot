@@ -4,5 +4,9 @@
     <!-- PROFILE ITEM -->
     <string name="item_prokemon_profile_view_details">ver detalhes</string>
 
+    <!-- MESSAGE STATE -->
+    <string name="message_pokemon_already_on_list">Pokemon listado nas pesquisas recentes</string>
+    <string name="message_pokemon_not_found">Pokemon não encontrado, tente novamente</string>
+
 
 </resources>
