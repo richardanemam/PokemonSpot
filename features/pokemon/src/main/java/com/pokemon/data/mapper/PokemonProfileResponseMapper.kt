@@ -38,7 +38,7 @@ internal class PokemonProfileResponseMapper {
         return movesList?.let { moves ->
             val list = mutableListOf<String>()
             repeat(moves.size) { position ->
-                moves[position].move?.forEach { it.name?.let { move -> list.add(move) } }
+                movesList[position].move?.name?.let { list.add(it) }
             }
             list
         } ?: listOf()

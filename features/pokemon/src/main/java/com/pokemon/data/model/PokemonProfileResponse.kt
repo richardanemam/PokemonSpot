@@ -18,7 +18,7 @@ data class PokemonProfileResponse(
     @SerializedName("moves") val moves: List<MovesResponse>?,
     @SerializedName("name") val name: String,
     @SerializedName("order") val order: Int?,
-    @SerializedName("species") val species: List<NameUrlResponse>?,
+    @SerializedName("species") val species: NameUrlResponse?,
     @SerializedName("sprites") val sprites: SpritesResponse?,
     @SerializedName("types") val types: List<Type>?,
     @SerializedName("weight") val weight: Int?
@@ -27,7 +27,7 @@ data class PokemonProfileResponse(
 @Parcelize
 data class GameIndicesResponse(
     @SerializedName("game_index") val gameIndex: Int?,
-    @SerializedName("version") val version: List<NameUrlResponse>?
+    @SerializedName("version") val version: NameUrlResponse?
 ) : Parcelable
 
 @Parcelize
@@ -39,19 +39,19 @@ data class PokemonAbilitiesResponse(
 
 @Parcelize
 data class HeldItemsResponse(
-    @SerializedName("item") val item: List<NameUrlResponse>?,
-    @SerializedName("version_details") val version_details: List<VersionDetailsResponse>?
+    @SerializedName("item") val item: NameUrlResponse?,
+    @SerializedName("version_details") val versionDetails: List<VersionDetailsResponse>?
 ) : Parcelable
 
 @Parcelize
 data class VersionDetailsResponse(
     @SerializedName("rarity") val rarity: Int?,
-    @SerializedName("version") val version: List<NameUrlResponse>?
+    @SerializedName("version") val version: NameUrlResponse?
 ) : Parcelable
 
 @Parcelize
 data class MovesResponse(
-    @SerializedName("move") val move: List<NameUrlResponse>?,
+    @SerializedName("move") val move: NameUrlResponse?,
     @SerializedName("version_group_details") val versionGroupDetails: List<VersionGroupDetailsResponse>
 
 ): Parcelable
@@ -59,8 +59,8 @@ data class MovesResponse(
 @Parcelize
 data class VersionGroupDetailsResponse(
     @SerializedName("level_learned_at") val levelLearnedAt: Int?,
-    @SerializedName("move_learn_method") val moveLearnMethod: List<NameUrlResponse>?,
-    @SerializedName("version_group") val versionGroup: List<NameUrlResponse>?
+    @SerializedName("move_learn_method") val moveLearnMethod: NameUrlResponse?,
+    @SerializedName("version_group") val versionGroup: NameUrlResponse?
 ): Parcelable
 
 @Parcelize

@@ -21,7 +21,8 @@ internal class PokemonProfileViewModel(
         viewModelScope.launch(dispatcher) {
             setLoadingState(isLoading = true)
 
-            if (pokemon.isPokemonCached(useCase.getAllPokemons())) {
+            val pokes = useCase.getAllPokemons()
+            if (pokemon.isPokemonCached(pokes)) {
                 setMessageState(resourceProvider.getString(R.string.message_pokemon_already_on_list))
             } else {
                 useCase.fetchPokemonProfile(pokemon)

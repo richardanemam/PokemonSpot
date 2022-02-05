@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/item_pokemon_8dp">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_pokemon_profile"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_pokemon_card_dimen"
         android:elevation="@dimen/item_pokemon_8dp"
+        android:layout_margin="@dimen/item_pokemon_8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

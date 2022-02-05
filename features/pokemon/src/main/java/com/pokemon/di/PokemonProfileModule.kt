@@ -14,15 +14,15 @@ import org.koin.dsl.module
 
 val pokemonDataModule: Module = module {
     single { providePokemonProfileDB(androidApplication()) }
-    single { providePokemonProfileDao(db = get()) }
-    single { provideRetrofit() }
-    single { provideService(retrofit = get()) }
-    single<PokemonProfileCachePolicyRepository>{
+    factory { providePokemonProfileDao(db = get()) }
+    factory { provideRetrofit() }
+    factory { provideService(retrofit = get()) }
+    factory<PokemonProfileCachePolicyRepository> {
         PokemonProfileCachePolicyRepositoryImpl(
             dao = get()
         )
     }
-    single<PokemonProfileRepository> {
+    factory<PokemonProfileRepository> {
         PokemonProfileRepositoryImpl(
             service = get(),
             cache = get(),

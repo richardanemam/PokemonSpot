@@ -3,6 +3,7 @@ package com.pokemon.data.repository
 import com.pokemon.data.api.PokemonProfileService
 import com.pokemon.data.mapper.PokemonProfileResponseMapper
 import com.pokemon.domain.model.PokemonProfile
+import com.pokemon.domain.repository.PokemonProfileCachePolicyRepository
 import com.pokemon.domain.repository.PokemonProfileRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -10,7 +11,7 @@ import kotlinx.coroutines.withContext
 
 internal class PokemonProfileRepositoryImpl(
     private val service: PokemonProfileService,
-    private val cache: PokemonProfileCachePolicyRepositoryImpl,
+    private val cache: PokemonProfileCachePolicyRepository,
     private val mapper: PokemonProfileResponseMapper,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : PokemonProfileRepository {

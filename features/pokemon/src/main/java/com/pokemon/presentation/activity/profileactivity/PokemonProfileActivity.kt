@@ -42,6 +42,7 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
         setSupportActionBar(binding.toolbarPokemonProfile)
         supportActionBar?.apply {
             setTitle(R.string.pokemon_toolbar_title)
+            titleColor = R.color.white
             setDisplayHomeAsUpEnabled(true)
         }
     }

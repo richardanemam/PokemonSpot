@@ -10,7 +10,7 @@ class State<State : UIState>(initalState: State) {
     val state: LiveData<State> = _state
 
     fun setState(state: (State) -> State) {
-        _state.value = state(_state.value!!)
+        _state.postValue(state(_state.value!!))
     }
 
 }
