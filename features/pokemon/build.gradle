@@ -68,6 +68,8 @@ dependencies {
     //ViewModelLifeCycle
     implementation Libs.viewModelLifecycle
 
+    implementation Libs.splashScreen
+
     //modules
     implementation project(Modules.common)
 }

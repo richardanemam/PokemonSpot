@@ -4,7 +4,6 @@
         <item name="windowSplashScreenBackground">@color/white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_android_black_24dp</item>
         <item name="windowSplashScreenAnimationDuration">600</item>
-        <item name="android:windowSplashScreenIconBackgroundColor">@color/green_8fb881</item>
         <item name="postSplashScreenTheme">@style/Theme.PokemonSpot</item>
     </style>
 </resources>

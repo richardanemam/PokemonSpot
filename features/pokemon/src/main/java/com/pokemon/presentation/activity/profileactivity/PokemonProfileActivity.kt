@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.common.core.arch.UIView
@@ -20,8 +21,9 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     private val binding by lazy { ActivityPokemonProfileBinding.inflate(layoutInflater) }
     private val viewModel by viewModel<PokemonProfileViewModel>()
 
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContentView(binding.root)
 
         subscribeStateObserver()

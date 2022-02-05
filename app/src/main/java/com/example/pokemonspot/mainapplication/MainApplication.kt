@@ -13,7 +13,7 @@ class MainApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidLogger()
+            //androidLogger()
             androidContext(this@MainApplication)
             modules(
                 listOf(

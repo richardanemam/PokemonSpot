@@ -2,6 +2,6 @@
     <string name="app_name">Pokemon Spot</string>
 
     <!-- HOME -->
-    <string name="home_hello_world">Pokémon (ポケモン Pokemon) é uma franquia de mídia que pertence a The Pokémon Company, tendo sido criada por Satoshi Tajiri em 1995.[4] Ela é centrada em criaturas ficcionais chamadas "Pokémon", que os seres humanos capturam e os treinam para lutarem entre si com seus ataques de diversos tipos… - Wikipédia</string>
+    <string name="home_hello_world">Pokémon (ポケモン Pokemon) é uma franquia de mídia que pertence a The Pokémon Company, tendo sido criada por Satoshi Tajiri em 1995. Ela é centrada em criaturas ficcionais chamadas "Pokémon", que os seres humanos capturam e os treinam para lutarem entre si com seus ataques de diversos tipos… - Wikipédia</string>
     <string name="home_capture_pokemons">capturar pokemons</string>
 </resources>
