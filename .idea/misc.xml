@@ -7,9 +7,11 @@
         <entry key="..\:/Users/Richard/workspace/pokemonspot/app/src/main/res/drawable/ic_launcher_background.xml" value="0.403125" />
         <entry key="..\:/Users/Richard/workspace/pokemonspot/app/src/main/res/layout/activity_home.xml" value="0.18819655521783182" />
         <entry key="..\:/Users/Richard/workspace/pokemonspot/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Richard/workspace/pokemonspot/features/pokemon/src/main/res/layout/activity_pokemon_details.xml" value="0.25" />
         <entry key="..\:/Users/Richard/workspace/pokemonspot/features/pokemon/src/main/res/layout/activity_pokemon_profile.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Richard/workspace/pokemonspot/features/pokemon/src/main/res/layout/fragment_pokemon_profile.xml" value="0.36730072463768115" />
         <entry key="..\:/Users/Richard/workspace/pokemonspot/features/pokemon/src/main/res/layout/item_pokemon.xml" value="0.36730072463768115" />
+        <entry key="..\:/Users/Richard/workspace/pokemonspot/features/pokemon/src/main/res/layout/item_pokemon_details.xml" value="0.38697916666666665" />
       </map>
     </option>
   </component>
