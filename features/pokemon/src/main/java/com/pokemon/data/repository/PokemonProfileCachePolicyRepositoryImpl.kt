@@ -6,11 +6,16 @@ import com.pokemon.data.extensions.toModel
 import com.pokemon.data.localdatasource.PokemonProfileDao
 import com.pokemon.domain.model.PokemonProfile
 import com.pokemon.domain.repository.PokemonProfileCachePolicyRepository
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 private const val MAX_RECORDS = 10
 
-internal class PokemonProfileCachePolicyRepositoryImpl(private val dao: PokemonProfileDao) :
-    PokemonProfileCachePolicyRepository {
+internal class PokemonProfileCachePolicyRepositoryImpl(
+    private val dao: PokemonProfileDao,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+) : PokemonProfileCachePolicyRepository {
 
     override suspend fun put(pokemonProfile: PokemonProfile) {
         delete()
@@ -24,10 +29,12 @@ internal class PokemonProfileCachePolicyRepositoryImpl(private val dao: PokemonP
     }
 
     override suspend fun getAllPokemonsCached(): List<PokemonProfile> {
-        val pokemonList = mutableListOf<PokemonProfile>()
-        dao.getAllPokemons().forEach {
-            pokemonList.add(it.toModel())
-        }
-        return pokemonList
+       return withContext(dispatcher) {
+           val pokemonList = mutableListOf<PokemonProfile>()
+           dao.getAllPokemons().forEach {
+               pokemonList.add(it.toModel())
+           }
+           pokemonList
+       }
     }
 }

@@ -11,6 +11,7 @@ import com.common.core.arch.UIView
 import com.pokemon.R
 import com.pokemon.databinding.ActivityPokemonProfileBinding
 import com.pokemon.domain.model.PokemonProfile
+import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileAction
 import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileState
 import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileViewModel
 import com.pokemon.presentation.adapter.PokemonProfileAdapter
@@ -26,12 +27,30 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
         installSplashScreen()
         setContentView(binding.root)
 
-        subscribeStateObserver()
+        subscribeObservers()
         setupViews()
 
     }
 
-    private fun subscribeStateObserver() = viewModel.state.observe(this, { render(it) })
+    private fun subscribeObservers() {
+        subscribeStateObserver()
+        subscribeActionObserver()
+    }
+
+    private fun subscribeStateObserver() {
+        viewModel.state.observe(this, { render(it) })
+    }
+
+    private fun subscribeActionObserver() {
+        viewModel.action.observe(this, {
+            when(it) {
+                is PokemonProfileAction.FetchPokemon -> viewModel.fetchPokemon(it.pokemon)
+                is PokemonProfileAction.NavigateToDetails -> {
+                    //navigate details
+                }
+            }
+        })
+    }
 
     private fun setupViews() {
         setupToolbar()
@@ -42,7 +61,6 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
         setSupportActionBar(binding.toolbarPokemonProfile)
         supportActionBar?.apply {
             setTitle(R.string.pokemon_toolbar_title)
-            titleColor = R.color.white
             setDisplayHomeAsUpEnabled(true)
         }
     }
@@ -50,7 +68,7 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     private fun setupSearchView() {
         binding.svPokemonProfile.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { pokemon -> viewModel.fetchPokemon(pokemon) }
+                query?.let { pokemon -> viewModel.searchPokemon(pokemon) }
                 return false
             }
 
@@ -65,16 +83,24 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     override fun render(state: PokemonProfileState) {
         with(state) {
             binding.pbPokemonProfile.isVisible = isLoading
-            binding.tvSearchScreenSearchForNewUsers.isVisible = isFirstSearch
-            setupRecyclerView(state.pokemonProfileList)
+            validatePokemonList(state.pokemonProfileList)
             message?.let { renderMessage(it) }
+        }
+    }
+
+    private fun validatePokemonList(pokemons: List<PokemonProfile>) {
+        when {
+            pokemons.isEmpty() -> binding.tvSearchScreenSearchForNewUsers.isVisible = true
+            else -> {
+                binding.tvSearchScreenSearchForNewUsers.isVisible = false
+                setupRecyclerView(pokemons)
+            }
         }
     }
 
     private fun setupRecyclerView(pokemons: List<PokemonProfile>) {
         binding.rvPokemonProfile.adapter = PokemonProfileAdapter(pokemons) {
-            //Start new activity
-            Toast.makeText(this, "Funcionando...", Toast.LENGTH_LONG).show()
+            viewModel.navigateToDetails(it)
         }
 
         LinearLayoutManager(this).apply {

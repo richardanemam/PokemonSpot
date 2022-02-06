@@ -5,4 +5,5 @@ import com.pokemon.domain.model.PokemonProfile
 
 sealed class PokemonProfileAction: UIAction {
     data class NavigateToDetails(val profileDetails: PokemonProfile): PokemonProfileAction()
+    data class FetchPokemon(val pokemon: String): PokemonProfileAction()
 }

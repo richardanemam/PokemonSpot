@@ -9,8 +9,7 @@ class State<State : UIState>(initalState: State) {
     private val _state: MutableLiveData<State> = MutableLiveData(initalState)
     val state: LiveData<State> = _state
 
-    fun setState(state: (State) -> State) {
-        _state.postValue(state(_state.value!!))
+    fun setState(newState: (State) -> State) {
+        _state.postValue(newState(_state.value!!))
     }
-
 }
