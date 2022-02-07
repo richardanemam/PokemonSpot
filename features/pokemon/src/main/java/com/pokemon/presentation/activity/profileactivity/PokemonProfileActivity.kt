@@ -22,6 +22,8 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     private val binding by lazy { ActivityPokemonProfileBinding.inflate(layoutInflater) }
     private val viewModel by viewModel<PokemonProfileViewModel>()
 
+    private lateinit var adapter: PokemonProfileAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -52,9 +54,18 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
         })
     }
 
+
     private fun setupViews() {
         setupToolbar()
         setupSearchView()
+        setupAdapter()
+    }
+
+    private fun setupAdapter() {
+        adapter = PokemonProfileAdapter(mutableListOf()) {
+            viewModel.navigateToDetails(it)
+        }
+        binding.rvPokemonProfile.adapter = adapter
     }
 
     private fun setupToolbar() {
@@ -99,13 +110,7 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     }
 
     private fun setupRecyclerView(pokemons: List<PokemonProfile>) {
-        binding.rvPokemonProfile.adapter = PokemonProfileAdapter(pokemons) {
-            viewModel.navigateToDetails(it)
-        }
-
-        LinearLayoutManager(this).apply {
-            binding.rvPokemonProfile.layoutManager = this
-        }
+        adapter.updatePokemonList(pokemons)
     }
 
     private fun renderMessage(message: String) {
