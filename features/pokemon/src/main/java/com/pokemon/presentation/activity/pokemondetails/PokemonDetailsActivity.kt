@@ -69,11 +69,7 @@ class PokemonDetailsActivity : AppCompatActivity(), UIView<PokemonDetailsState> 
     }
 
     private fun subscribeState() {
-        viewModel.state.observe(this, {
-            viewModel.state.observe(this, {
-                render(it)
-            })
-        })
+        viewModel.state.observe(this, { render(it) })
     }
 
     override fun render(state: PokemonDetailsState) {
