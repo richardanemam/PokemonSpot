@@ -7,6 +7,7 @@
     <!-- MESSAGE STATE -->
     <string name="message_pokemon_already_on_list">Pokemon listado nas pesquisas recentes</string>
     <string name="message_pokemon_not_found">Pokemon não encontrado, tente novamente</string>
+    <string name="message_pokemon_internet_unavailable">Acesso à internet indisponível</string>
 
     <!-- POKEMON PROFILE ACTIVITY -->
     <string name="pokemon_toolbar_title">encontrar pokemon</string>

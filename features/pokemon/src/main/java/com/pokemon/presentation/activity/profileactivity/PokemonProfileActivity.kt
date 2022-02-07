@@ -1,12 +1,13 @@
 package com.pokemon.presentation.activity.profileactivity
 
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.common.core.arch.UIView
 import com.pokemon.R
 import com.pokemon.databinding.ActivityPokemonProfileBinding
@@ -45,7 +46,7 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
 
     private fun subscribeActionObserver() {
         viewModel.action.observe(this, {
-            when(it) {
+            when (it) {
                 is PokemonProfileAction.FetchPokemon -> viewModel.fetchPokemon(it.pokemon)
                 is PokemonProfileAction.NavigateToDetails -> {
                     //navigate details
@@ -79,7 +80,7 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     private fun setupSearchView() {
         binding.svPokemonProfile.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { pokemon -> viewModel.searchPokemon(pokemon) }
+                query?.let { handleInternetConnection(it) }
                 return false
             }
 
@@ -89,6 +90,20 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
             }
 
         })
+    }
+
+    private fun handleInternetConnection(pokemon: String) {
+        if (isInternetConnected() == true) {
+            viewModel.searchPokemon(pokemon)
+        } else {
+            viewModel.searchPokemon(null)
+        }
+    }
+
+    private fun isInternetConnected(): Boolean? {
+        val cm = this.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        return activeNetwork?.isConnectedOrConnecting
     }
 
     override fun render(state: PokemonProfileState) {

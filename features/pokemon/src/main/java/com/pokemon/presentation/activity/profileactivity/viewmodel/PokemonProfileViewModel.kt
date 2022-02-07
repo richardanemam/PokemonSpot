@@ -42,8 +42,12 @@ internal class PokemonProfileViewModel(
         }
     }
 
-    fun searchPokemon(pokemon: String) {
-        sendAction { PokemonProfileAction.FetchPokemon(pokemon.toApiSearchPattern()) }
+    fun searchPokemon(pokemon: String?) {
+        if(pokemon != null) {
+            sendAction { PokemonProfileAction.FetchPokemon(pokemon.toApiSearchPattern()) }
+        } else {
+            setState { it.setErrorMessage(resourceProvider.getString(R.string.message_pokemon_internet_unavailable)) }
+        }
     }
 
     fun navigateToDetails(pokemonDetails: PokemonProfile) {
