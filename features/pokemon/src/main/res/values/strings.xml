@@ -24,4 +24,5 @@
     <string name="pokemon_details_abilities_title">Habilidades</string>
     <string name="pokemon_details_moves_title">Movimentos</string>
     <string name="pokemon_details_error_message">Informações indisponíveis</string>
+    <string name="pokemon_details_toolbar">Detalhes do pokemon</string>
 </resources>

@@ -31,12 +31,14 @@ internal class PokemonDetailsViewModel(private val resourceProvider: ResourcePro
     fun updateState(pokemonProfile: PokemonProfile?) {
         if (pokemonProfile != null) {
             setState {
-                it
-                    .setInfoAvailability(pokemonProfile)
-                    .setErrorMessage(null)
+                it.copy(pokemonInfo = pokemonProfile)
             }
         } else {
-            setState { it.setErrorMessage(resourceProvider.getString(R.string.pokemon_details_error_message)) }
+            setState {
+                it.copy(
+                    errorMessage = resourceProvider.getString(R.string.pokemon_details_error_message)
+                )
+            }
         }
     }
 }

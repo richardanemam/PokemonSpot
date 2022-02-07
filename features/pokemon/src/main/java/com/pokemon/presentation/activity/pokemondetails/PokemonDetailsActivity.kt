@@ -1,9 +1,10 @@
 package com.pokemon.presentation.activity.pokemondetails
 
 import android.os.Bundle
-import android.os.Message
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isVisible
 import com.common.core.arch.UIView
 import com.common.extensions.loadImage
 import com.common.extensions.toCustomString
@@ -27,13 +28,23 @@ class PokemonDetailsActivity : AppCompatActivity(), UIView<PokemonDetailsState> 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
             viewModel.sendDisplayInfoAction(intent)
         }
 
+        setupToolbar()
         subscribeObservers()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.toolbarPokemonDetails)
+        supportActionBar?.apply {
+            setTitle(R.string.pokemon_toolbar_title)
+            setDisplayHomeAsUpEnabled(true)
+        }
     }
 
     private fun subscribeObservers() {
@@ -66,6 +77,7 @@ class PokemonDetailsActivity : AppCompatActivity(), UIView<PokemonDetailsState> 
 
     private fun setupPokemonInfo(pokemonInfo: PokemonProfile) {
         with(pokemonInfo) {
+
             imageUrl?.let { binding.ivPokemonDetails.loadImage(it) }
 
             binding.llPokemonDetails.addCustomItemView(

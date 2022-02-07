@@ -1,5 +1,6 @@
 package com.pokemon.presentation.activity.profileactivity
 
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.common.core.arch.UIView
 import com.pokemon.R
 import com.pokemon.databinding.ActivityPokemonProfileBinding
 import com.pokemon.domain.model.PokemonProfile
+import com.pokemon.presentation.activity.pokemondetails.PokemonDetailsActivity
 import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileAction
 import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileState
 import com.pokemon.presentation.activity.profileactivity.viewmodel.PokemonProfileViewModel
@@ -49,7 +51,10 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
             when (it) {
                 is PokemonProfileAction.FetchPokemon -> viewModel.fetchPokemon(it.pokemon)
                 is PokemonProfileAction.NavigateToDetails -> {
-                    //navigate details
+                    val intent =
+                        Intent(this@PokemonProfileActivity, PokemonDetailsActivity::class.java)
+                    intent.putExtra(PokemonDetailsActivity.EXTRA_POKEMON_INFO, it.profileDetails)
+                    startActivity(intent)
                 }
             }
         })
@@ -72,7 +77,7 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbarPokemonProfile)
         supportActionBar?.apply {
-            setTitle(R.string.pokemon_toolbar_title)
+            setTitle(R.string.pokemon_details_toolbar)
             setDisplayHomeAsUpEnabled(true)
         }
     }

@@ -6,6 +6,7 @@
 
     <application>
         <activity android:name=".presentation.activity.profileactivity.PokemonProfileActivity"/>
+        <activity android:name=".presentation.activity.pokemondetails.PokemonDetailsActivity"/>
     </application>
 
 </manifest>
