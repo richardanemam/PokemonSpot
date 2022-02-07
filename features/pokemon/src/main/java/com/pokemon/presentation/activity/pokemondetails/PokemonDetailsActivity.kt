@@ -1,6 +1,7 @@
 package com.pokemon.presentation.activity.pokemondetails
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -45,6 +46,13 @@ class PokemonDetailsActivity : AppCompatActivity(), UIView<PokemonDetailsState> 
             setTitle(R.string.pokemon_toolbar_title)
             setDisplayHomeAsUpEnabled(true)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun subscribeObservers() {

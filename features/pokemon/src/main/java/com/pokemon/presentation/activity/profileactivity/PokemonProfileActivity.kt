@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -80,6 +81,13 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
             setTitle(R.string.pokemon_details_toolbar)
             setDisplayHomeAsUpEnabled(true)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setupSearchView() {
