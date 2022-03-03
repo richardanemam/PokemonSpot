@@ -35,8 +35,7 @@ internal class PokemonProfileAdapter(
     class PokemonProfileViewHolder(
         private val binding: ItemPokemonBinding,
         private val onItemClicked: (PokemonProfile) -> Unit
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindViews(pokemon: PokemonProfile) {
             pokemon.imageUrl?.let { binding.ivPokemon.loadImage(it) }

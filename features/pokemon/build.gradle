@@ -45,10 +45,16 @@ dependencies {
     implementation Libs.appcompat
     implementation Libs.material
 
-    //Test
+    //JUnit
     testImplementation Libs.junit
     androidTestImplementation Libs.extJunit
+
+    //espresso
     androidTestImplementation Libs.espresso
+
+    //mockK
+    testImplementation Libs.mockK
+    testImplementation Libs.mockKAgentJVM
 
     //gson
     implementation Libs.gson

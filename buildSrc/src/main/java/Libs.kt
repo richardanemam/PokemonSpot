@@ -12,6 +12,8 @@ object Libs {
     const val junit = "junit:junit:${Versions.junit}"
     const val extJunit = "androidx.test.ext:junit:${Versions.extJunit}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val mockK = "io.mockk:mockk:${Versions.mockk}"
+    const val mockKAgentJVM = "io.mockk:mockk-agent-jvm:${Versions.mockk}"
 
     //Gradle Tools
     const val gradleTools = "com.android.tools.build:gradle:${Versions.gradle}"
