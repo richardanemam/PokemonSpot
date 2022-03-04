@@ -23,4 +23,6 @@ object Versions {
     const val extJunit = "1.1.3"
     const val espresso = "3.4.0"
     const val mockk = "1.12.3"
+    const val coroutinesTest = "1.5.0"
+    const val coreTesting = "1.1.1"
 }

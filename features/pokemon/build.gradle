@@ -44,6 +44,7 @@ dependencies {
     implementation Libs.coreKtx
     implementation Libs.appcompat
     implementation Libs.material
+    testImplementation Libs.coreTesting
 
     //JUnit
     testImplementation Libs.junit
@@ -68,6 +69,7 @@ dependencies {
 
     //coroutines
     implementation Libs.coroutines
+    testImplementation Libs.kotlinCoroutinesTest
 
     //room
     implementation Libs.room

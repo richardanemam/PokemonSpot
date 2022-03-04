@@ -14,6 +14,8 @@ object Libs {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val mockK = "io.mockk:mockk:${Versions.mockk}"
     const val mockKAgentJVM = "io.mockk:mockk-agent-jvm:${Versions.mockk}"
+    const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+    const val coreTesting = "android.arch.core:core-testing:${Versions.coreTesting}"
 
     //Gradle Tools
     const val gradleTools = "com.android.tools.build:gradle:${Versions.gradle}"
