@@ -21,7 +21,6 @@ internal class PokemonProfileViewModel(
 
     private fun displayCachedData() {
         viewModelScope.launch {
-            setState { it.setLoading(true) }
             val cache = useCase.getAllPokemons()
             if (cache.isNotEmpty()) {
                 setPokemonProfileState(cache)
