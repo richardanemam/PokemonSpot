@@ -31,16 +31,9 @@ internal class PokemonProfileViewModel(
     fun fetchPokemon(pokemon: String) {
         viewModelScope.launch {
             setState { it.setLoading(true) }
-            when (pokemon.isPokemonCached(useCase.getAllPokemons())) {
-                true -> {
-                    setMessageState(
-                        resourceProvider.getString(R.string.message_pokemon_already_on_list)
-                    )
-                }
-                false -> {
-                    useCase.fetchPokemonProfile(pokemon)
-                    setPokemonAvailabilityState(pokemon)
-                }
+            if(isPokemonCached(pokemon).not()) {
+                useCase.fetchPokemonProfile(pokemon)
+                setPokemonAvailabilityState(pokemon)
             }
         }
     }
@@ -60,6 +53,16 @@ internal class PokemonProfileViewModel(
 
     fun navigateToDetails(pokemonDetails: PokemonProfile) {
         sendAction { PokemonProfileAction.NavigateToDetails(pokemonDetails) }
+    }
+
+    private suspend fun isPokemonCached(pokemon: String): Boolean {
+        if (pokemon.isPokemonCached(useCase.getAllPokemons())) {
+            setMessageState(
+                resourceProvider.getString(R.string.message_pokemon_already_on_list)
+            )
+            return true
+        }
+        return false
     }
 
     private suspend fun setPokemonAvailabilityState(pokemon: String) {
