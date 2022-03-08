@@ -31,21 +31,30 @@ internal class PokemonProfileViewModel(
     fun fetchPokemon(pokemon: String) {
         viewModelScope.launch {
             setState { it.setLoading(true) }
-
-            if (pokemon.isPokemonCached(useCase.getAllPokemons())) {
-                setMessageState(resourceProvider.getString(R.string.message_pokemon_already_on_list))
-            } else {
-                useCase.fetchPokemonProfile(pokemon)
-                setPokemonAvailabilityState(pokemon)
+            when (pokemon.isPokemonCached(useCase.getAllPokemons())) {
+                true -> {
+                    setMessageState(
+                        resourceProvider.getString(R.string.message_pokemon_already_on_list)
+                    )
+                }
+                false -> {
+                    useCase.fetchPokemonProfile(pokemon)
+                    setPokemonAvailabilityState(pokemon)
+                }
             }
         }
     }
 
     fun searchPokemon(pokemon: String?) {
-        if(pokemon != null) {
-            sendAction { PokemonProfileAction.FetchPokemon(pokemon.toApiSearchPattern()) }
-        } else {
-            setState { it.setErrorMessage(resourceProvider.getString(R.string.message_pokemon_internet_unavailable)) }
+        when (pokemon) {
+            null -> {
+                setState {
+                    it.setErrorMessage(
+                        resourceProvider.getString(R.string.message_pokemon_internet_unavailable)
+                    )
+                }
+            }
+            else -> sendAction { PokemonProfileAction.FetchPokemon(pokemon.toApiSearchPattern()) }
         }
     }
 

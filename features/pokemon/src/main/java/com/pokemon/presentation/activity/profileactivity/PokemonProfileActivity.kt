@@ -69,11 +69,11 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     }
 
     private fun setupAdapter() {
-        adapter = PokemonProfileAdapter(mutableListOf()) {
-            viewModel.navigateToDetails(it)
-        }
+        adapter = PokemonProfileAdapter(mutableListOf(), ::navigateToDetails)
         binding.rvPokemonProfile.adapter = adapter
     }
+
+    private fun navigateToDetails(pokemon: PokemonProfile) = viewModel.navigateToDetails(pokemon)
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbarPokemonProfile)
