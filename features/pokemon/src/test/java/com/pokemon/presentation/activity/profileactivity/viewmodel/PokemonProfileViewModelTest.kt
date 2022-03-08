@@ -57,4 +57,23 @@ internal class PokemonProfileViewModelTest {
             viewModel.state.value
         )
     }
+
+    @Test
+    fun `init should display initial state`() {
+        //given
+        coEvery { useCase.getAllPokemons() } returns emptyList()
+
+        //when
+        val viewModel = createViewModel()
+
+        //then
+        Assert.assertEquals(
+            PokemonProfileState(
+                pokemonProfileList = emptyList(),
+                isLoading = false,
+                message = null
+            ),
+            viewModel.state.value
+        )
+    }
 }
