@@ -106,10 +106,9 @@ class PokemonProfileActivity : AppCompatActivity(), UIView<PokemonProfileState> 
     }
 
     private fun handleInternetConnection(pokemon: String) {
-        if (isInternetConnected() == true) {
-            viewModel.searchPokemon(pokemon)
-        } else {
-            viewModel.searchPokemon(null)
+        when(isInternetConnected()) {
+            true -> viewModel.searchPokemon(pokemon)
+            else -> viewModel.searchPokemon(null)
         }
     }
 
