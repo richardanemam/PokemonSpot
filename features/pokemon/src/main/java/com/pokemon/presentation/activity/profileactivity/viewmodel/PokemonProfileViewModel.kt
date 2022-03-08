@@ -56,13 +56,10 @@ internal class PokemonProfileViewModel(
     }
 
     private suspend fun isPokemonCached(pokemon: String): Boolean {
-        if (pokemon.isPokemonCached(useCase.getAllPokemons())) {
-            setMessageState(
-                resourceProvider.getString(R.string.message_pokemon_already_on_list)
-            )
-            return true
-        }
-        return false
+        return if (pokemon.isPokemonCached(useCase.getAllPokemons())) {
+            setMessageState(resourceProvider.getString(R.string.message_pokemon_already_on_list))
+            true
+        } else false
     }
 
     private suspend fun setPokemonAvailabilityState(pokemon: String) {
