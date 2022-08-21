@@ -57,6 +57,9 @@ dependencies {
     testImplementation Libs.mockK
     testImplementation Libs.mockKAgentJVM
 
+    //MockWebServer
+    testImplementation Libs.mockWebServer
+
     //gson
     implementation Libs.gson
 

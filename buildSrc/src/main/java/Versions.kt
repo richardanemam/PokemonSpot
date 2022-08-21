@@ -25,4 +25,5 @@ object Versions {
     const val mockk = "1.12.3"
     const val coroutinesTest = "1.5.0"
     const val coreTesting = "1.1.1"
+    const val mockWebServer = "4.9.3"
 }

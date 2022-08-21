@@ -16,6 +16,7 @@ object Libs {
     const val mockKAgentJVM = "io.mockk:mockk-agent-jvm:${Versions.mockk}"
     const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     const val coreTesting = "android.arch.core:core-testing:${Versions.coreTesting}"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
 
     //Gradle Tools
     const val gradleTools = "com.android.tools.build:gradle:${Versions.gradle}"
